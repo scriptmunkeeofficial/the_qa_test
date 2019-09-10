@@ -1,0 +1,41 @@
+<%- include('../header'); -%>
+
+<%
+    var userss = [
+        { 'id':101, 'name':'Joe Admin', 'username':'admin','email':'admin@tq.at','status':'active' }
+        ,{ 'id':102, 'name':'Joe Admin', 'username':'admin','email':'admin@tq.at','status':'suspended' }
+    ]
+%>
+<div class="container">
+    <h2>Users</h2>
+
+    <div id="users" class="table-responsive">
+        <!-- table class="table table-bordered table-striped table-hover" -->
+        <table class="table table-bordered table-hover">
+            <caption>List of users</caption>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>Active?</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <% users.forEach( function(user) { -%>
+                    <tr>
+                        <td><%= user.user_id %></td>
+                        <td><%= user.f_name %> <%= user.l_name %></td>
+                        <td><%= user.user_name %></td>
+                        <td><%= user.email %></td>
+                        <td><%= user.active %></td>
+                        <td><button>View</button></td>
+                    </tr>
+                <% }); %>
+            </tbody>
+        </table>
+    </div>
+</div>
+<%- include('../footer'); -%>

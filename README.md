@@ -17,17 +17,25 @@ This platform can be used to evaluate the abilities of a potential Software Qual
 
 # Managing the QA Test Platform
 ## Platform Prerequisites
+* NodeJS
 * Git
+* Sqlite3 or MySQL
 * Docker
 
 ## Starting the Platform
+### Stand alone
+1. Clone the repo
+2. CD into the local repo folder
+3. `npm start` or `node ./src/index.js`
+
+### Docker
 1. Clone the repo
 2. CD into the local repo folder
 3. Run `docker-compose`
 4. From a browser open `https://...../`
 
 ## Base User Accounts
-| Username | Password | Roll |
+| Username | Password | Role |
 |:------:|:-----:|:---:|
 | admin | P@ssw0rd | Admin |
 | sam | SamIam | User |
@@ -35,6 +43,7 @@ This platform can be used to evaluate the abilities of a potential Software Qual
 ## Platform Resources
 * [Node JS](https://hub.docker.com/_/node)
 * [MySQL](https://hub.docker.com/_/mysql)
+* [Sqlite](https://www.sqlite.org/index.html) (non-prod)
 
 ## Container Access
 

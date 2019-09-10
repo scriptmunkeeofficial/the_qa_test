@@ -2,15 +2,15 @@
   "name": "qa_test",
   "version": "1.0.0",
   "description": "simple web app to test the abilities of Quality Assurance interview candidates3",
-  "main": "src/index.js",
-  "scripts": {
-      "start": "node ./src",
-      "devstart": "nodemon ./src",
-    "lint": "eslint src"
-  },
+  "license": "MIT",
+  "author": "Ken Simeon",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/scriptmunkeeofficial/qa_test.git"
+  },
+  "homepage": "https://github.com/scriptmunkeeofficial/qa_test#readme",
+  "bugs": {
+    "url": "https://github.com/scriptmunkeeofficial/qa_test/issues"
   },
   "keywords": [
     "QA",
@@ -22,19 +22,38 @@
     "Engineer",
     "SDET"
   ],
-  "author": "Ken Simeon",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/scriptmunkeeofficial/qa_test/issues"
+  "config" : { "loglevel": "verbose" },
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node ./src",
+    "devstart": "nodemon --verbose ./src",
+    "lint": "eslint src"
   },
-  "homepage": "https://github.com/scriptmunkeeofficial/qa_test#readme",
+  "nodemonConfig": {
+    "watch": [
+      "src"
+    ],
+    "ignore": [
+      "test/*",
+      "docs/*",
+      ".git",
+      "node_modules/**/node_modules"
+    ],
+    "ext": "js,json,ejs,scss",
+    "delay": "2500"
+  },
   "dependencies": {
+    "bookshelf": "^0.15.1",
+    "bookshelf-schema": "^0.3.6",
+    "bookshelf-secure-password": "^4.0.0",
     "bootstrap": "^4.3.1",
     "ejs": "^2.6.2",
     "express": "^4.17.1",
     "jquery": "^3.4.1",
+    "knex": "^0.19.2",
+    "mysql": "^2.17.1",
     "popper.js": "^1.15.0",
-    "sqlite3": "^4.0.9"
+    "sqlite3": "^4.1.0"
   },
   "devDependencies": {
     "eslint": "^6.0.1",

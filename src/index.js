@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 // const cookieParser = require('cookie-parser');
 // const logger = require('morgan');
+const uc = require('./controllers/users-controller');
 
 const app = express();
 // app.use(express.static('public'));
@@ -12,7 +13,6 @@ app.set('view engine', 'ejs')
 
 // main GET response
 app.get('/', function (req, res, next) {
-    // res.send('Hello World!')
     res.render('index');
 });
 
@@ -22,8 +22,10 @@ app.get('/login', function (req, res, next) {
 });
 
 app.get('/users', function (req, res, next) {
-    res.send('Users Page');
-    //res.render('users_page');
+    let usersList = uc.getUsers();
+    console.log('Users route:');
+    console.log(usersList);
+    res.render('users/index', { users: usersList } );
 });
 
 app.get('/users/*', function (req, res, next) {
@@ -31,20 +33,27 @@ app.get('/users/*', function (req, res, next) {
     //res.render('user_page');
 });
 
-// catch 404 and forward to error handler
-app.use(function(req, res, next) {
-    next(createError(404));
+app.get('/about', function (req, res, next) {
+    res.render('about');
 });
+
+// catch 404 and forward to error handler
+// app.use(function(req, res, next) {
+//     next(createError(404));
+// });
 
 // error handling
 app.use(function(err, req, res, next) {
     // set locals, only providing error in development
     res.locals.message = err.message;
     res.locals.error = req.app.get('env') === 'development' ? err : {};
+    console.log(res.locals.message);
+    console.log(res.locals.error);
 
     // render the error page
     res.status(err.status || 500);
-    res.render('error');
+    // TODO: handle data sent to error page
+    res.render('error', [res.locals.error, res.locals.message]);
 });
 
 var serv = app.listen(3000, function () {
