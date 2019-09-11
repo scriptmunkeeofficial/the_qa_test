@@ -1,6 +1,5 @@
 const db = require('./db-connector');
 const dbSchema = require('bookshelf-schema')
-
 const Fields = require('bookshelf-schema/lib/fields')
     , StringField = Fields.StringField
     , IntField = Fields.IntField

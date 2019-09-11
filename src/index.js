@@ -2,7 +2,6 @@ const express = require('express');
 const path = require('path');
 // const cookieParser = require('cookie-parser');
 // const logger = require('morgan');
-const uc = require('./controllers/users-controller');
 
 const app = express();
 // app.use(express.static('public'));
@@ -21,17 +20,14 @@ app.get('/login', function (req, res, next) {
     //res.render('login_page');
 });
 
-app.get('/users', function (req, res, next) {
-    let usersList = uc.getUsers();
-    console.log('Users route:');
-    console.log(usersList);
-    res.render('users/index', { users: usersList } );
-});
+// using User route
+var usersRouter = require('./routes/users');
+app.use('/users', usersRouter);
 
-app.get('/users/*', function (req, res, next) {
-    res.send('Users Page');
-    //res.render('user_page');
-});
+// app.get('/users#<{(|', function (req, res, next) {
+//     res.send('Users Page');
+//     //res.render('user_page');
+// });
 
 app.get('/about', function (req, res, next) {
     res.render('about');

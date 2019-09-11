@@ -71,3 +71,8 @@ Get Container IP Addresses
 
     VBoxManage guestproperty enumerate default |grep IP
 
+# TODO List:
+1. Resolve npm issues with bookshelf, knex, bookshelf-shcema
+```npm WARN bookshelf@0.15.1 requires a peer of knex@>=0.13.0 <0.18.0 but none is installed. You must install peer dependencies yourself.
+npm WARN bookshelf-schema@0.3.6 requires a peer of bookshelf@>=0.8.2 <0.11 but none is installed. You must install peer dependencies yourself.```
+

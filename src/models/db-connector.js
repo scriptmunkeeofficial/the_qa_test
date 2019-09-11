@@ -9,7 +9,8 @@ const dbFile = path.join(__dirname, '../../db/qaTestDB.sqlite3')
 // SQLite connections
 const sqlite_options = {
     client: 'sqlite3',
-    connection: { filename: dbFile }
+    connection: { filename: dbFile },
+    useNullAsDefault: true
 }
 
 // MySQL

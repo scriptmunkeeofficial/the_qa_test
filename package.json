@@ -22,7 +22,9 @@
     "Engineer",
     "SDET"
   ],
-  "config" : { "loglevel": "verbose" },
+  "config": {
+    "loglevel": "verbose"
+  },
   "main": "src/index.js",
   "scripts": {
     "start": "node ./src",
@@ -43,6 +45,7 @@
     "delay": "2500"
   },
   "dependencies": {
+    "async": "^3.1.0",
     "bookshelf": "^0.15.1",
     "bookshelf-schema": "^0.3.6",
     "bookshelf-secure-password": "^4.0.0",
