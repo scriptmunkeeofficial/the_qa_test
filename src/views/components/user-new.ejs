@@ -1,0 +1,41 @@
+<form name="form1" method="POST" action="/users/add">
+    <table id='user'>
+        <tr>
+            <td>First name</td>
+            <td><input type="text" name="fname" ></td>
+            <td>last name</td>
+            <td><input type="text" name="lname" ></td>
+        </tr>
+        <tr>
+            <td>username:</td><td><input type="text" name="user_name"></td>
+            <td>username:</td><td><%= data.user.user_name %></td>
+        </tr>
+        <tr>
+            <td>Email:</td><td><input type="text" name="email"></td>
+            <td>Email:</td><td><%= data.user.email %></td>
+        </tr>
+        <tr>
+            <td>Role:</td>
+            <td>
+                <select name="role">
+                    <option value="user" selected>User</option>
+                    <option value="admin">Admin</option>
+                </select>
+            </td>
+            <td>Role:</td><td><%= data.user.role %></td>
+        </tr>
+        <tr>
+            <td>Status:</td>
+            <td>
+                <select name="active">
+                    <option value="1" selected>Active</option>
+                    <option value="0">Disabled</option>
+                </select>
+            </td>
+            <td>Status:</td><td><%= data.user.active == 1 ? 'active' : 'disabled' %></td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="submit" value="Save" ></td>
+        </tr>
+    </table>
+</form>
